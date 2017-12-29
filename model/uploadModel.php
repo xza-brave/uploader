@@ -40,7 +40,9 @@ class uploadModel extends commonModel{
      */
 	public function uploadFile(){
 		$data = $_POST["data"];
-    $data['pass'] = md5($data['pass']);
+        if (!empty($data['pass'])) {
+            $data['pass'] = md5($data['pass']);
+        }
 		$file = $_FILES["upfile"];
 		$handle = fopen($file["tmp_name"], "rb");
         $fileData = "";
