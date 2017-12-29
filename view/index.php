@@ -115,7 +115,7 @@ $(function() {
                     data: data,
                     success: function(res) {
                         alert("マジックカード管理者権限を発動します");
-                        window.location.href = './admin.php'
+                        window.location.href = './admin.php';
                     }
                 });
                 return false;
