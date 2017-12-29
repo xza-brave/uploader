@@ -53,10 +53,10 @@
                     <?php
                     if (empty($file['パスワード'])) {
                         // パスワードがない時そのままダウンロードできるリンクを貼る
-                        $file['ダウンロード'] = 'href="download.php?id='.$file['ファイルNo'].'"';
+                        echo 'href="download.php?id='.$file['ファイルNo'].'"';
                     } else {
                         // パスワードがある時はパスワード確認モーダルを開く
-                        $file['ダウンロード'] = 'data-toggle="modal" data-target="#modal" class="toggle-modal"';
+                        echo 'data-toggle="modal" data-target="#modal" class="toggle-modal"';
                     }
                     ?>>
                     <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>
