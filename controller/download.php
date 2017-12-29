@@ -3,11 +3,14 @@ require_once "../model/uploadModel.php";
 $model = new uploadModel();
 if (isset($_GET['id'])) {
     $file = $model->get($_GET['id']);
-} else {
+} else if (isset($_POST['file-no']) && isset($_POST['pass'])) {
     $file = $model->get($_POST['file-no'], $_POST['pass']);
+} else {
+    header("Location:index.php");
+    exit(0);
 }
 
-if ($file != false) {
+if (isset($file) && $file != false) {
 
     // ファイルタイプを指定
     header('Content-Type: application/octet-stream');
