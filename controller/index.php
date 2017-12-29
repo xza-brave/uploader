@@ -1,12 +1,15 @@
 <?php
-require_once("../model/uploadModel.php");
+require_once "../model/uploadModel.php";
 
-$uploadOBJ = new uploadModel();
+$model = new uploadModel();
 
 if(isset($_POST['uploadExe'])){
 	$data = $_POST["data"];
 	$password = trim(htmlspecialchars($data['pass']));
 	$comment = trim(htmlspecialchars($data['comment']));
-	$uploadOBJ->uploadFile();
+	$model->uploadFile();
 }
-$outputValue = $uploadOBJ->getFiles();
+
+$files = $model->getFiles();
+
+require_once "../view/index.php";

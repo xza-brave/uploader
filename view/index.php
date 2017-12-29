@@ -1,6 +1,3 @@
-<?php
-require_once("../controller/uploadController.php");
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -47,19 +44,19 @@ require_once("../controller/uploadController.php");
             <th>ダウンロード</th>
         </tr>
         <tr>
-            <?php foreach ($row as $rows) { ?>
-                <td><?= $row['ファイル名'] ?></td>
-                <td><?= $row['サイズ'] ?></td>
-                <td><?= $row['日付'] ?></td>
-                <td><?= $row['コメント'] ?></td>
+            <?php foreach ($file as $files) { ?>
+                <td><?= $file['ファイル名'] ?></td>
+                <td><?= $file['サイズ'] ?></td>
+                <td><?= $file['日付'] ?></td>
+                <td><?= $file['コメント'] ?></td>
                 <td><a
                     <?php
-                    if (empty($row['パスワード'])) {
+                    if (empty($file['パスワード'])) {
                         // パスワードがない時そのままダウンロードできるリンクを貼る
-                        $row['ダウンロード'] = 'href="download.php?id='.$row['ファイルNo'].'"';
+                        $file['ダウンロード'] = 'href="download.php?id='.$file['ファイルNo'].'"';
                     } else {
                         // パスワードがある時はパスワード確認モーダルを開く
-                        $row['ダウンロード'] = 'data-toggle="modal" data-target="#modal" class="toggle-modal"';
+                        $file['ダウンロード'] = 'data-toggle="modal" data-target="#modal" class="toggle-modal"';
                     }
                     ?>>
                     <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>
