@@ -1,6 +1,6 @@
 <?php
 require_once "commonModel.php";
-class uploadModel extends commonModel {
+class fileModel extends commonModel {
 
     /**
      * IDと一致するファイルを返す
@@ -70,4 +70,14 @@ class uploadModel extends commonModel {
 		$stmt->execute(array($data['name'], $fileData, $data['pass'], $file["size"], $data['comment']));
 	}
 
+    /**
+     * ファイルを削除する
+     * @param  int  $id ファイルの主キー
+     * @return bool     true: 削除成功, false: 削除失敗
+     */
+    public function delete($id)
+    {
+        $sql = "DELETE FROM `upload` WHERE `ファイルNo` = $id";
+        return $this->pdoIns->prepare($sql)->execute();
+    }
 }

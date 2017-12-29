@@ -1,7 +1,7 @@
 <?php
-require_once "../model/uploadModel.php";
+require_once "../model/fileModel.php";
 
-$model = new uploadModel();
+$model = new fileModel();
 
 if(isset($_POST['uploadExe'])){
 	$data = $_POST["data"];

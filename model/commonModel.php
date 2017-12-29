@@ -14,5 +14,4 @@ class commonModel {
 		$pdoIns=new PDO($dsn,$user,$password);
 		return $pdoIns;
 	}
-
 }

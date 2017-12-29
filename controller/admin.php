@@ -27,8 +27,8 @@ if (isset($_POST['keys'])) {
     }
 } else if (isset($_SESSION['rank']) && $_SESSION['rank'] == "admin") {
     // 管理者権限を持つ人がアクセスしてきた時
-    require_once "../model/uploadModel.php";
-    $model = new uploadModel();
+    require_once "../model/fileModel.php";
+    $model = new fileModel();
     $files = $model->getFiles();
     require_once "../view/admin.php";
 } else {

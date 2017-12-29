@@ -1,6 +1,6 @@
 <?php
-require_once "../model/uploadModel.php";
-$model = new uploadModel();
+require_once "../model/fileModel.php";
+$model = new fileModel();
 if (isset($_GET['id'])) {
     $file = $model->get($_GET['id']);
 } else if (isset($_POST['file-no']) && isset($_POST['pass'])) {

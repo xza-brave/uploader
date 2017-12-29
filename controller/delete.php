@@ -1,14 +1,15 @@
 <?php
-require_once("../model/commonModel.php");
-require_once("../model/deleteModel.php");
+session_start();
 
-$deleteOBJ = new deleteModel();
+// 不正アクセス制御
+if (!isset($_SESSION['rank']) && $_SESSION['rank'] != "admin" && !isset($_POST['no'])) {
+    header("Location:index.php");
+    exit(0);
+}
 
-$pointValue=0;
-if(isset($_POST['deleteExe'])){
-	foreach ($_POST['selectCountry'] as $country) {
-		$pointValue = intval(htmlspecialchars($country));
-		$deleteOBJ->deleteTable($pointValue);
-		}
-	}
-$outputValue = $deleteOBJ -> displayTable();
+// ファイル削除
+require_once "../model/fileModel.php";
+$model = new fileModel();
+$res = $model->delete($_POST['no']);
+
+echo json_encode($res);
