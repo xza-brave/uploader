@@ -44,7 +44,7 @@
             <th>ダウンロード</th>
         </tr>
         <tr>
-            <?php foreach ($file as $files) { ?>
+            <?php foreach ($files as $file) { ?>
                 <td><?= $file['ファイル名'] ?></td>
                 <td><?= $file['サイズ'] ?></td>
                 <td><?= $file['日付'] ?></td>
