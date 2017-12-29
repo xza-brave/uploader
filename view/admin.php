@@ -14,8 +14,8 @@
 <body>
     <div class="alert alert-info alert-dismissible" role="alert">
         <p>
-            ここは<b>管理画面</b>です。<br>
-            通常ページは<a href="index,php" class="alert-link">こちら</a>
+            ここは管理画面です。<br>
+            通常ページは<a href="index.php" class="alert-link">こちら</a>
         </p>
     </div>
     <table class="table table-striped">
