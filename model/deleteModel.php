@@ -1,6 +1,6 @@
 <?php
-require_once("commonModel.php");
-class deleteModel extends commonModel{
+require_once "commonModel.php" ;
+public class deleteModel extends commonModel {
 
 	public function displayTable(){
 		$rank = 1;
@@ -24,4 +24,3 @@ class deleteModel extends commonModel{
 		}
 	}
 }
-?>

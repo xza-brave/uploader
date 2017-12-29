@@ -1,6 +1,6 @@
 <?php
-require_once("commonModel.php");
-class uploadModel extends commonModel{
+require_once "commonModel.php";
+public class uploadModel extends commonModel {
 
     /**
      * IDと一致するファイルを返す

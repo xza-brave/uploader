@@ -12,4 +12,3 @@ if(isset($_POST['deleteExe'])){
 		}
 	}
 $outputValue = $deleteOBJ -> displayTable();
-?>

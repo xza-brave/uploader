@@ -1,5 +1,5 @@
 <?php
-class commonModel{
+public class commonModel {
 
 	protected $pdoIns;
 
