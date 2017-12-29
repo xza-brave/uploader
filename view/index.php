@@ -43,8 +43,8 @@
             <th>コメント</th>
             <th>ダウンロード</th>
         </tr>
-        <tr>
-            <?php foreach ($files as $file) { ?>
+        <?php foreach ($files as $file) { ?>
+            <tr>
                 <td><?= $file['ファイル名'] ?></td>
                 <td><?= $file['サイズ'] ?></td>
                 <td><?= $file['日付'] ?></td>
@@ -62,8 +62,8 @@
                     <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>
                 </a>
             </td>
-        <?php } ?>
-    </tr>
+        </tr>
+    <?php } ?>
 </table>
 <div class="modal fade" id="modal">
     <div class="modal-dialog" role="dialog">
