@@ -8,7 +8,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../view/css/style.css">
 </head>
 
 <body>
@@ -40,7 +40,7 @@
         $(function() {
             $(".delete").on('click', function() {
                 if (confirm("削除してもよろしいですか？\n２度と元に戻すことはできません！")) {
-                    var no = $(this).parent().find('.no').val();
+                    var no = $(this).parent().find('.no').text();
                     $.ajax({
                         url: 'delete.php',
                         type: 'POST',
@@ -50,7 +50,7 @@
                         success: function(res) {
                             if (res) {
                                 alert("削除に成功しました！");
-                                $(this).parent().fadeOut();
+                                window.location.href = 'admin.php';
                             } else {
                                 alert("削除に失敗しました...");
                             }
