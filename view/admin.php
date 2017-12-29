@@ -13,8 +13,10 @@
 
 <body>
     <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <p>管理者画面ですよ</p>
+        <p>
+            ここは<b>管理画面</b>です。<br>
+            通常ページは<a href="index,php" class="alert-link">こちら</a>
+        </p>
     </div>
     <table class="table table-striped">
         <tr>
