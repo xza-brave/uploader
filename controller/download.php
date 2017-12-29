@@ -1,5 +1,5 @@
 <?php
-require_once("../model/uploadModel.php");
+require_once "../model/uploadModel.php";
 $obj = new uploadModel();
 if (isset($_GET['id'])) {
     $file = $obj->get($_GET['id']);
