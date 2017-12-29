@@ -16,7 +16,7 @@ if (isset($_POST['keys'])) {
         $_SESSION['rank'] = "admin";
         // 200(OK) を返す
         header("HTTP/1.0 200 OK");
-        $res = "花澤香菜様万歳！！！"
+        $res = "花澤香菜様万歳！！！";
         echo json_encode($res);
     } else {
         // パスワードが違った時 401(Unauthorized) を返す
