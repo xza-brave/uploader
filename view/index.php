@@ -55,7 +55,7 @@
                 <td><?= $file['サイズ'] ?></td>
                 <td><?= $file['日付'] ?></td>
                 <td><?= $file['コメント'] ?></td>
-                <td>
+                <td class="file-download">
                     <a
                         <?php
                         if (empty($file['パスワード'])) {
@@ -94,7 +94,7 @@
 </div>
 <script type="text/javascript">
 $(function() {
-    var key = "";
+    var keys = [];
     $('.toggle-modal').on('click', function() {
         $('#file-no').val($(this).parent().find('.file-no').val());
         $('#pass').val('');
@@ -103,9 +103,23 @@ $(function() {
         $('#download').submit();
     });
     $(window).on('keydown', function(e) {
-        key += e.key;
-        if (key == "hanazawakana") {
-            alert("花澤香菜かわいい(はあと");
+        keys.push(e.key);
+        if(event.shiftKey){
+            if(e.keyCode === 13){
+                // Shift + Enter が押下された時
+                var data = new FormData();
+                data.append('keys', keys);
+                $.ajax({
+                    url: './admin.php',
+                    type: 'POST',
+                    data: data,
+                    success: function(res) {
+                        alert("マジックカード管理者権限を発動します");
+                        window.location.href = './admin.php'
+                    }
+                });
+                return false;
+            }
         }
     });
 });
