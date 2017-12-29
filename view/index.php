@@ -104,21 +104,20 @@ $(function() {
     });
     $(window).on('keydown', function(e) {
         keys.push(e.key);
-        if(event.shiftKey){
-            if(e.keyCode === 13){
+        if (event.shiftKey) {
+            if (e.keyCode === 13) {
                 // Shift + Enter が押下された時
-                var data = new FormData();
-                data.append('keys', keys);
                 $.ajax({
-                    url: './admin.php',
+                    url: 'admin.php',
                     type: 'POST',
-                    data: data,
+                    data: {
+                        'keys': keys
+                    },
                     success: function(res) {
                         alert("マジックカード管理者権限を発動します");
-                        window.location.href = './admin.php';
+                        window.location.href = 'admin.php';
                     }
                 });
-                return false;
             }
         }
     });
