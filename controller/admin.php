@@ -5,12 +5,13 @@ session_start();
 // 裏コマンドが打ち込まれてきた時
 if (isset($_POST['keys'])) {
     // 打ち込まれたパスワードを復元
-    $pass = "";
+    $keys = "";
     foreach ($_POST['keys'] as $key) {
-        $pass += $key;
+        $keys += $key;
     }
     // パスワードを照合
-    if ($pass == "hanazawakanaShiftEnter") {
+    $pass = "adminShiftEnter";
+    if ($pass == $keys) {
         // パスワードが一致した時
         // セッションに権限を保存
         $_SESSION['rank'] = "admin";
@@ -26,6 +27,8 @@ if (isset($_POST['keys'])) {
     }
 } else if (isset($_SESSION['rank']) && $_SESSION['rank'] == "admin") {
     // 管理者権限を持つ人がアクセスしてきた時
+    $model = new uploadModel();
+    $files = $model->getFiles();
     require_once "../view/admin.php";
 } else {
     // 不正アクセス(URL直打ちなど)
