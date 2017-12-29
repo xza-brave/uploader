@@ -1,10 +1,10 @@
 <?php
 require_once "../model/uploadModel.php";
-$obj = new uploadModel();
+$model = new uploadModel();
 if (isset($_GET['id'])) {
-    $file = $obj->get($_GET['id']);
+    $file = $model->get($_GET['id']);
 } else {
-    $file = $obj->get($_POST['file-no'], $_POST['pass']);
+    $file = $model->get($_POST['file-no'], $_POST['pass']);
 }
 
 if ($file != false) {
@@ -26,4 +26,11 @@ if ($file != false) {
 
     // ファイルを出力
     echo $file['data'];
+} else {
+    // ダウンロードに失敗した時は一覧を表示
+    $files = $model->getFiles();
+
+    $msg = "パスワードが違います";
+
+    require_once "../view/index.php";
 }

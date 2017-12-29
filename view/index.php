@@ -11,6 +11,11 @@
 </head>
 
 <body>
+    <?php if (isset($msg)) { ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $msg ?>
+        </div>
+    <?php } ?>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <input type="hidden" name="MAX_FILE_SIZE" value="4000000">
