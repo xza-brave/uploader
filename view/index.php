@@ -55,22 +55,23 @@
                 <td><?= $file['サイズ'] ?></td>
                 <td><?= $file['日付'] ?></td>
                 <td><?= $file['コメント'] ?></td>
-                <td><a
-                    <?php
-                    if (empty($file['パスワード'])) {
-                        // パスワードがない時そのままダウンロードできるリンクを貼る
-                        echo 'href="download.php?id='.$file['ファイルNo'].'"';
-                    } else {
-                        // パスワードがある時はパスワード確認モーダルを開く
-                        echo 'data-toggle="modal" data-target="#modal" class="toggle-modal"';
-                    }
-                    ?>>
-                    <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>
-                </a>
-            </td>
-        </tr>
-    <?php } ?>
-</table>
+                <td>
+                    <a
+                        <?php
+                        if (empty($file['パスワード'])) {
+                            // パスワードがない時そのままダウンロードできるリンクを貼る
+                            echo 'href="download.php?id='.$file['ファイルNo'].'"';
+                        } else {
+                            // パスワードがある時はパスワード確認モーダルを開く
+                            echo 'data-toggle="modal" data-target="#modal" class="toggle-modal"';
+                        }
+                        ?>>
+                        <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
 <div class="modal fade" id="modal">
     <div class="modal-dialog" role="dialog">
         <div class="modal-content">
@@ -93,12 +94,19 @@
 </div>
 <script type="text/javascript">
 $(function() {
+    var key = "";
     $('.toggle-modal').on('click', function() {
         $('#file-no').val($(this).parent().find('.file-no').val());
         $('#pass').val('');
     });
     $('#submit').on('click', function() {
         $('#download').submit();
+    });
+    $(window).on('keydown', function(e) {
+        key += e.key;
+        if (key == "hanazawakana") {
+            alert("花澤香菜かわいい(はあと");
+        }
     });
 });
 </script>
